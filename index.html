@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshMart Premium - Your Neighborhood Grocery Destination</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading FreshMart...</p>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo" data-page="home">
+                    <img src="assets/images/logo/store-logo.png" alt="FreshMart Logo" class="logo-image">
+                    <div class="logo-text">
+                        <h1 class="logo">FreshMart</h1>
+                        <p class="tagline">Premium Store</p>
+                    </div>
+                </div>
+
+                <nav class="nav" id="mainNav">
+                    <a href="#" class="nav__link active" data-page="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="#" class="nav__link" data-page="products">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Products</span>
+                    </a>
+                    <a href="#" class="nav__link" data-page="categories">
+                        <i class="fas fa-th-large"></i>
+                        <span>Categories</span>
+                    </a>
+                    <a href="#" class="nav__link" data-page="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="#" class="nav__link" data-page="contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </nav>
+
+                <div class="header__actions">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+
+                    <div class="user-menu">
+                        <button class="btn btn--secondary" id="userMenuBtn">
+                            <i class="fas fa-user"></i>
+                            <span id="userMenuText">Account</span>
+                        </button>
+                        <div class="dropdown-menu" id="userDropdown">
+                            <div id="guestMenu">
+                                <a href="#" class="dropdown-item" data-page="login">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </a>
+                                <a href="#" class="dropdown-item" data-page="register">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
+                            </div>
+                            <div id="userMenu" style="display: none;">
+                                <a href="#" class="dropdown-item" data-page="profile">
+                                    <i class="fas fa-user-circle"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="dropdown-item" data-page="orders">
+                                    <i class="fas fa-receipt"></i>
+                                    Orders
+                                </a>
+                                <a href="#" class="dropdown-item" id="logoutBtn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn--cart" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+
+                    <button class="btn btn--admin" id="adminBtn" data-page="admin">
+                        <i class="fas fa-cog"></i>
+                        <span>Admin</span>
+                    </button>
+                </div>
+
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Page -->
+        <div class="page" id="homePage">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-background"></div>
+                <div class="container">
+                    <div class="hero__content">
+                        <div class="hero__text">
+                            <h1 class="hero__title">Welcome to FreshMart Premium</h1>
+                            <p class="hero__subtitle">Your premium neighborhood grocery destination with fresh products, quality service, and unbeatable prices</p>
+                            <div class="hero__stats">
+                                <div class="stat">
+                                    <span class="stat-number">500+</span>
+                                    <span class="stat-label">Products</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">Service</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">100%</span>
+                                    <span class="stat-label">Fresh</span>
+                                </div>
+                            </div>
+                            <div class="hero__cta">
+                                <button class="btn btn--primary btn--large" data-page="products">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    Shop Now
+                                </button>
+                                <button class="btn btn--secondary btn--large" data-page="categories">
+                                    <i class="fas fa-th-large"></i>
+                                    Browse Categories
+                                </button>
+                            </div>
+                        </div>
+                        <div class="hero__image">
+                            <div class="hero-image-container">
+                                <img src="assets/images/logo/store-logo.png" alt="Fresh Groceries" class="hero-image">
+                                <div class="floating-elements">
+                                    <div class="floating-element floating-element--1">
+                                        <i class="fas fa-apple-alt"></i>
+                                    </div>
+                                    <div class="floating-element floating-element--2">
+                                        <i class="fas fa-carrot"></i>
+                                    </div>
+                                    <div class="floating-element floating-element--3">
+                                        <i class="fas fa-bread-slice"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories-showcase">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Shop by Category</h2>
+                        <p class="section-subtitle">Discover our wide range of premium products</p>
+                    </div>
+                    <div class="categories-grid" id="categoriesGrid">
+                        <!-- Categories will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="featured-products">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Featured Products</h2>
+                        <p class="section-subtitle">Hand-picked premium quality products just for you</p>
+                    </div>
+                    <div class="products-grid" id="featuredProducts">
+                        <!-- Featured products will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="container">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3>Free Delivery</h3>
+                            <p>Free delivery on orders above ₹500</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3>100% Fresh</h3>
+                            <p>Farm-fresh products delivered daily</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Quick Service</h3>
+                            <p>Same-day delivery available</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Quality Assured</h3>
+                            <p>Premium quality guarantee</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Store Info -->
+            <section class="store-info">
+                <div class="container">
+                    <div class="store-info__grid">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Store Hours</h3>
+                            <ul id="storeHours">
+                                <!-- Store hours will be populated by JavaScript -->
+                            </ul>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Contact Info</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> 123 Krishna Street, Villupuram, Tamil Nadu</p>
+                            <p><i class="fas fa-phone"></i> +91 9334548975</p>
+                            <p><i class="fas fa-envelope"></i> visitus@freshmartstore.com</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-concierge-bell"></i>
+                            </div>
+                            <h3>Our Services</h3>
+                            <ul>
+                                <li><i class="fas fa-truck"></i> Home Delivery</li>
+                                <li><i class="fas fa-store"></i> Store Pickup</li>
+                                <li><i class="fas fa-seedling"></i> Fresh Produce</li>
+                                <li><i class="fas fa-phone"></i> Phone Orders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Products Page -->
+        <div class="page" id="productsPage" style="display: none;">
+            <div class="container">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>All Products</h1>
+                        <p>Discover our complete range of premium products</p>
+                    </div>
+                    <div class="filters-controls">
+                        <select id="categoryFilter" class="form-control">
+                            <option value="">All Categories</option>
+                        </select>
+                        <select id="sortBy" class="form-control">
+                            <option value="name">Sort by Name</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="products-grid" id="allProducts">
+                    <!-- All products will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Page -->
+        <div class="page" id="categoriesPage" style="display: none;">
+            <div class="container">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Product Categories</h1>
+                        <p>Explore our wide variety of product categories</p>
+                    </div>
+                </div>
+                <div class="categories-grid large" id="allCategories">
+                    <!-- Categories will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Detail Page -->
+        <div class="page" id="productDetailPage" style="display: none;">
+            <div class="container">
+                <div class="product-detail" id="productDetail">
+                    <!-- Product details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Page -->
+        <div class="page" id="cartPage" style="display: none;">
+            <div class="container">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1><i class="fas fa-shopping-cart"></i> Shopping Cart</h1>
+                        <p>Review your selected items</p>
+                    </div>
+                </div>
+                <div class="cart-content" id="cartContent">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Page -->
+        <div class="page" id="checkoutPage" style="display: none;">
+            <div class="container">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1><i class="fas fa-credit-card"></i> Checkout</h1>
+                        <p>Complete your order</p>
+                    </div>
+                </div>
+                <div class="checkout-content" id="checkoutContent">
+                    <div class="checkout-form">
+                        <h2>Delivery Information</h2>
+                        <form id="checkoutForm">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Full Name</label>
+                                <input type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-phone"></i> Phone Number</label>
+                                <input type="tel" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-envelope"></i> Email</label>
+                                <input type="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-map-marker-alt"></i> Delivery Address</label>
+                                <textarea rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-truck"></i> Delivery Option</label>
+                                <select required>
+                                    <option value="">Select Option</option>
+                                    <option value="home">Home Delivery (+₹40)</option>
+                                    <option value="pickup">Store Pickup (Free)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-credit-card"></i> Payment Method</label>
+                                <select required>
+                                    <option value="">Select Payment</option>
+                                    <option value="cod">Cash on Delivery</option>
+                                    <option value="upi">UPI Payment</option>
+                                    <option value="card">Credit/Debit Card</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--large">
+                                <i class="fas fa-check"></i>
+                                Place Order
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Pages -->
+        <div class="page" id="loginPage" style="display: none;">
+            <div class="container">
+                <div class="auth-form">
+                    <div class="auth-header">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <h1>Welcome Back</h1>
+                        <p>Sign in to your account</p>
+                    </div>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Username or Email" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--large">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Login
+                        </button>
+                    </form>
+                    <p>Don't have an account? <a href="#" data-page="register">Register here</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="registerPage" style="display: none;">
+            <div class="container">
+                <div class="auth-form">
+                    <div class="auth-header">
+                        <i class="fas fa-user-plus"></i>
+                        <h1>Create Account</h1>
+                        <p>Join our premium grocery store</p>
+                    </div>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="text" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Confirm Password" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--large">
+                            <i class="fas fa-user-plus"></i>
+                            Create Account
+                        </button>
+                    </form>
+                    <p>Already have an account? <a href="#" data-page="login">Login here</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Page -->
+        <div class="page" id="adminPage" style="display: none;">
+            <div class="container">
+                <div class="admin-login" id="adminLogin">
+                    <div class="admin-login-card">
+                        <div class="admin-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h1>Admin Access</h1>
+                            <p>Enter your admin credentials</p>
+                        </div>
+                        <form id="adminLoginForm">
+                            <div class="form-group">
+                                <i class="fas fa-user-shield"></i>
+                                <input type="text" placeholder="Admin Username" value="admin">
+                            </div>
+                            <div class="form-group">
+                                <i class="fas fa-key"></i>
+                                <input type="password" placeholder="Admin Password" value="admin123">
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--large">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Login as Admin
+                            </button>
+                        </form>
+                        <div class="demo-credentials">
+                            <p><strong>Demo Credentials:</strong></p>
+                            <p>Username: <code>admin</code></p>
+                            <p>Password: <code>admin123</code></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-panel" id="adminPanel" style="display: none;">
+                    <div class="admin-header">
+                        <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+                        <p>Manage your store from here</p>
+                    </div>
+                    <div class="admin-tabs">
+                        <button class="tab-btn active" data-tab="dashboard">
+                            <i class="fas fa-chart-bar"></i>
+                            Dashboard
+                        </button>
+                        <button class="tab-btn" data-tab="products">
+                            <i class="fas fa-box"></i>
+                            Products
+                        </button>
+                        <button class="tab-btn" data-tab="orders">
+                            <i class="fas fa-receipt"></i>
+                            Orders
+                        </button>
+                        <button class="tab-btn" data-tab="customers">
+                            <i class="fas fa-users"></i>
+                            Customers
+                        </button>
+                    </div>
+                    <div class="admin-content">
+                        <div class="tab-content" id="dashboardTab">
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-box"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>Total Products</h3>
+                                        <p class="stat-number" id="totalProducts">0</p>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>Total Orders</h3>
+                                        <p class="stat-number" id="totalOrders">0</p>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-rupee-sign"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>Total Revenue</h3>
+                                        <p class="stat-number" id="totalRevenue">₹0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="productsTab" style="display: none;">
+                            <div class="admin-actions">
+                                <button class="btn btn--primary" id="addProductBtn">
+                                    <i class="fas fa-plus"></i>
+                                    Add New Product
+                                </button>
+                            </div>
+                            <div class="admin-table" id="productsTable">
+                                <!-- Products table will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="tab-content" id="ordersTab" style="display: none;">
+                            <div class="admin-table" id="ordersTable">
+                                <!-- Orders table will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="tab-content" id="customersTab" style="display: none;">
+                            <div class="admin-table" id="customersTable">
+                                <!-- Customers table will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div class="page" id="aboutPage" style="display: none;">
+            <div class="container">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1><i class="fas fa-info-circle"></i> About FreshMart Premium</h1>
+                        <p>Learn more about our story and mission</p>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <div class="about-hero">
+                        <h2>Our Story</h2>
+                        <p>Welcome to FreshMart Premium, your trusted neighborhood grocery destination. We've been serving our community with fresh, quality products and exceptional customer service since our founding.</p>
+                    </div>
+                    <div class="about-sections">
+                        <div class="about-section">
+                            <div class="about-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h2>Our Mission</h2>
+                            <p>To provide our customers with the freshest products, competitive prices, and convenient shopping experience right in their neighborhood. We believe in quality, service, and community.</p>
+                        </div>
+                        <div class="about-section">
+                            <div class="about-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h2>Why Choose Us?</h2>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Fresh products delivered daily from local farms</li>
+                                <li><i class="fas fa-check"></i> Competitive prices with regular discounts</li>
+                                <li><i class="fas fa-check"></i> Free home delivery on orders above ₹500</li>
+                                <li><i class="fas fa-check"></i> Friendly and knowledgeable customer service</li>
+                                <li><i class="fas fa-check"></i> Wide variety of premium quality products</li>
+                                <li><i class="fas fa-check"></i> Easy online ordering and payment options</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div class="page" id="contactPage" style="display: none;">
+            <div class="container">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1><i class="fas fa-envelope"></i> Contact Us</h1>
+                        <p>Get in touch with our team</p>
+                    </div>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Get in Touch</h2>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <strong>Store Address</strong>
+                                <p>123 Krishna Street, Villupuram,<br>Tamil Nadu 605602, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <strong>Phone Number</strong>
+                                <p>+91 9334548987<br>Available 24/7</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <strong>Email Address</strong>
+                                <p>visitus@freshmartstore.com<br>support@freshmartstore.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <strong>Store Hours</strong>
+                                <p>Monday - Friday: 8:00 AM - 9:00 PM<br>
+                                   Saturday: 9:00 AM - 9:00 PM<br>
+                                   Sunday: 9:00 AM - 9:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h2>Send us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <i class="fas fa-tag"></i>
+                                <input type="text" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <i class="fas fa-comment"></i>
+                                <textarea placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--large">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo/store-logo.png" alt="FreshMart Logo">
+                        <div>
+                            <h3>FreshMart Premium</h3>
+                            <p>Your neighborhood grocery destination</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer__section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" data-page="home"><i class="fas fa-chevron-right"></i>Home</a></li>
+                        <li><a href="#" data-page="products"><i class="fas fa-chevron-right"></i>Products</a></li>
+                        <li><a href="#" data-page="categories"><i class="fas fa-chevron-right"></i>Categories</a></li>
+                        <li><a href="#" data-page="about"><i class="fas fa-chevron-right"></i>About</a></li>
+                        <li><a href="#" data-page="contact"><i class="fas fa-chevron-right"></i>Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Krishna Street, Villupuram</li>
+                        <li><i class="fas fa-phone"></i> +91 9334548987</li>
+                        <li><i class="fas fa-envelope"></i> visitus@freshmartstore.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 9AM-9PM</li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on offers and new products</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button type="button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 FreshMart Premium. All rights reserved. Made with <i class="fas fa-heart"></i> for our community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-content" id="notificationContent"></div>
+        <button class="notification-close" id="notificationClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
